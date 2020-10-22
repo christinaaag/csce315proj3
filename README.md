@@ -2,15 +2,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## To install locally:
 Run the following commands (assuming node.js is installed):<br />
-`npx create-react-app dir_name`<br />
-`cd dir_name`<br />
 `git init` <br />
 `git remote add origin GITHUB_URL`<br />
-`git fetch origin master`<br />
+`npm install` <br />
 
-Now, make sure there are no local differences with `git status`<br />
-If there are local differences, run:<br />
-`git restore .`
+## Required packages:
+The following packages are required. `npm install` should install all of them for 
+you, but just in case here are the individual commands: <br />
+React Router<br />
+`npm install --save react-router-dom`<br />
+Bootstrap<br />
+`npm install react-bootstrap bootstrap`<br />
+Styled Components<br />
+`npm install --save styled-components`<br />
 
 ## Available Scripts
 
