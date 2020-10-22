@@ -18,6 +18,8 @@ React Router<br />
 `npm install --save react-router-dom`<br />
 Bootstrap<br />
 `npm install react-bootstrap bootstrap`<br />
+Styled Components<br />
+`npm install --save styled-components`<br />
 
 ## Available Scripts
 
