@@ -7,3 +7,5 @@ const Landing = () => {
         </p>
     )
 }
+
+export default Landing;

@@ -7,3 +7,5 @@ const Dashboard = () => {
         </p>
     )
 }
+
+export default Dashboard;
