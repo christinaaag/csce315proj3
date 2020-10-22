@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import Dashboard from "./containers/dashboard";
 import Landing from "./containers/landing";
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
