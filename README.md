@@ -2,15 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## To install locally:
 Run the following commands (assuming node.js is installed):<br />
-`npx create-react-app dir_name`<br />
-`cd dir_name`<br />
 `git init` <br />
 `git remote add origin GITHUB_URL`<br />
-`git fetch origin master`<br />
-
-Now, make sure there are no local differences with `git status`<br />
-If there are local differences, run:<br />
-`git restore .`
+`npm install` <br />
 
 ## Required packages:
 The following packages are required. `npm install` should install all of them for 
