@@ -1,16 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## To install locally:
-Run the following commands (assuming node.js is installed):
-npx create-react-app dir_name
-cd dir_name
-git init
-git remote add origin GITHUB_URL
-git fetch origin master
+Run the following commands (assuming node.js is installed):<br />
+`npx create-react-app dir_name`<br />
+`cd dir_name`<br />
+`git init` <br />
+`git remote add origin GITHUB_URL`<br />
+`git fetch origin master`<br />
 
-Now, make sure there are no local differences with git status
-If there are local differences, run:
-git restore .
+Now, make sure there are no local differences with `git status`<br />
+If there are local differences, run:<br />
+`git restore .`
 
 ## Available Scripts
 
