@@ -12,6 +12,13 @@ Now, make sure there are no local differences with `git status`<br />
 If there are local differences, run:<br />
 `git restore .`
 
+## Required packages:
+The following packages are required, with the command to install them:<br />
+React Router<br />
+`npm install --save react-router-dom`<br />
+Bootstrap<br />
+`npm install react-bootstrap bootstrap`<br />
+
 ## Available Scripts
 
 In the project directory, you can run:
