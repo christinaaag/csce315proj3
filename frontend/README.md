@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To install locally:
+Run the following commands (assuming node.js is installed):<br />
+`git init` <br />
+`git remote add origin GITHUB_URL`<br />
+`npm install` <br />
+
+## Required packages:
+The following packages are required. `npm install` should install all of them for 
+you, but just in case here are the individual commands: <br />
+React Router<br />
+`npm install --save react-router-dom`<br />
+Bootstrap<br />
+`npm install react-bootstrap bootstrap`<br />
+Styled Components<br />
+`npm install --save styled-components`<br />
+
 ## Available Scripts
 
 In the project directory, you can run:
