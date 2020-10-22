@@ -13,7 +13,8 @@ If there are local differences, run:<br />
 `git restore .`
 
 ## Required packages:
-The following packages are required, with the command to install them:<br />
+The following packages are required. `npm install` should install all of them for 
+you, but just in case here are the individual commands: <br />
 React Router<br />
 `npm install --save react-router-dom`<br />
 Bootstrap<br />
