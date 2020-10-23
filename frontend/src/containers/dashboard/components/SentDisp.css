@@ -1,0 +1,65 @@
+.sentdisp-container {
+    /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+  }
+
+.sentdisp-container > h1 {
+  color: #fff;
+  font-size: 100px;
+  margin-top: -100px;
+}
+
+
+.sentdisp-container > p {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+  }
+
+  .sentdisp-data {
+    content: "";
+  display: table;
+  clear: both;
+    
+
+  }
+  
+  .legend-title{
+    text-align: left;
+    font-size: 25px;
+
+  }
+  .legend-text {
+    text-align: left;
+    font-size: 20px;
+  }
+
+
+  .sentdisp-btns {
+    margin-top: 32px;
+  }
+  
+  .sentdisp-btns .btn {
+    margin: 6px;
+  }
+
+  .sent-container > p {
+    font-size: 30px;
+  }
+
+  .btn-mobile{
+      display: block;
+      text-decoration: none;
+  }
+  
+  .btn {
+    width: 100%;
+  }

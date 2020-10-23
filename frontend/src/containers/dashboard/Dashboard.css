@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: row !important;
+}
+
+.col {
+    align-items: stretch;
+}
+
+.row {
+    justify-content: center;
+}
+
+.imageCard {
+    height: 25vmin;
+    padding: 15px;
+}
