@@ -4,7 +4,14 @@
   "description": "handles all calls to third party apis",
   "main": "index.js",
   "scripts": {
+    "install server": "cd ../backend && npm install",
+    "install client": "cd ../frontend && npm install",
+    "install all": "concurrently --kill-others \"npm run install server\" \"npm run install client",
+    "client": "cd ../frontend && react-scripts start",
+    "server": "cd ../backend && node server.js",
+    "start": "concurrently --kill-others \"npm run client\" \"npm run server\"",
     "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "author": "",
   "license": "ISC",
