@@ -6,7 +6,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
     object-fit: contain;
   }
 
@@ -23,6 +22,24 @@
     font-size: 32px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
+  }
+
+  .sentdisp-data {
+    content: "";
+  display: table;
+  clear: both;
+    
+
+  }
+  
+  .legend-title{
+    text-align: left;
+    font-size: 25px;
+
+  }
+  .legend-text {
+    text-align: left;
+    font-size: 20px;
   }
 
 

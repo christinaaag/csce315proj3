@@ -13,9 +13,17 @@ const Dashboard = () => {
                 <h1 className="title">Moodia<img className="logo" src={logo} alt="" /></h1>
             </Container>
             <Container>
-                    <SentDisp/>
             
-                
+                <Col>
+                <SentDisp/>
+                </Col>
+
+
+                <Col>
+                <h1>Twitter Feed</h1>
+                </Col>
+                    
+        
             </Container>
           
         </div>
