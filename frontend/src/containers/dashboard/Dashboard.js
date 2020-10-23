@@ -10,17 +10,19 @@ const Dashboard = () => {
     return (
         <div className="body">
             <Container >
-                <h1 className="title">Moodia<img className="logo" src={logo} alt="" /></h1>
+                <h1 className="logo">Moodia<img className="logo" src={logo} alt="" /></h1>
             </Container>
             <Container>
             
                 <Col>
                 <SentDisp/>
                 </Col>
+                
+                
 
 
                 <Col>
-                <h1>Twitter Feed</h1>
+                    <h2>Twitter Feed</h2>
                 </Col>
                     
         

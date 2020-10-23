@@ -32,26 +32,29 @@ return (
     <>
     
         <div className='sentdisp-container'>
-          <div className= 'sentdis-data'>
+          <div className= 'sentdisp-data'>
             <Row>
               <Col>
               <PieChart
                 data={[
                   { title: 'Happy', value: 10, color: '#F8C822' },
-                  { title: 'Sad', value: 15, color: '#6693FF' },
+                  { title: 'Sad', value: 60, color: '#6693FF' },
                   { title: 'Neutral', value: 20, color: '#958C8C' },
                 ]}
 
                 lineWidth={20}
                 />
-              </Col>
-              <Col>
                 <br></br>
-                <h4 className= 'legend-title'>Tweet Emotions</h4>
-                <div className= 'legend-text'>😊Happy</div>
-                <div className= 'legend-text'>😔Sad</div>
-                <div className= 'legend-text'>😶Neutral</div>
+                <br></br>
+          
+                  <h4 className= 'legend-title'>Tweet Emotions</h4>
+                  
+                  <div className= 'legend-text'>😊Happy</div>
+                  <div className= 'legend-text'>😔Sad</div>
+                  <div className= 'legend-text'>😶Neutral</div>
+               
               </Col>
+             
             </Row>
             
 
