@@ -1,18 +1,46 @@
 
 .container {
-    display: flex;
+    /* display: flex; */
+    align-items: flex-start;
+}
+
+.verticalAlign {
+    vertical-align: top;
+    align-items: flex-start;
 }
 
 .col {
-    align-items: stretch;
+    padding-top: 20px;
+}
+
+.textAlign {
+    align-items: left;
+    min-width: 100%;
+}
+
+.title {
+    padding-left: 30px;
 }
 
 .row {
+    align-items: center;
     justify-content: center;
 }
 
+/* .twitterButton {
+    align-items: left;
+    padding-left: 50px;
+} */
+
+.alignButton {
+    text-align: left;
+    padding-left: 40px;
+    font-size: 20px;
+}
+
 .imageCard {
-    height: 25vmin;
-    padding: 15px;
+    height: 30vmin;
+    padding: 30px;
+    padding-left: 50px;
 }
 
