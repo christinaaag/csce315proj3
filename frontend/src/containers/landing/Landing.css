@@ -30,6 +30,7 @@
 .twitterButton {
     align-items: left;
     padding-left: 50px;
+    max-width: 210px;
 }
 
 .alignButton {
