@@ -16,15 +16,12 @@
     "styled-components": "^5.2.0"
   },
   "scripts": {
-    "install server": "cd ../backend && npm install",
-    "install client": "cd ../frontend && npm install",
-    "install all": "concurrently --kill-others \"npm run install server\" \"npm run install client",
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "cd ../backend && node server.js",
-    "start all": "concurrently --kill-others \"npm run client\" \"npm run server\""
+    "start_all": "concurrently --kill-others \"npm run client\" \"npm run server\""
   },
   "eslintConfig": {
     "extends": "react-app"

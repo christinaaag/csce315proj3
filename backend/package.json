@@ -4,18 +4,15 @@
   "description": "handles all calls to third party apis",
   "main": "index.js",
   "scripts": {
-    "install server": "cd ../backend && npm install",
-    "install client": "cd ../frontend && npm install",
-    "install all": "concurrently --kill-others \"npm run install server\" \"npm run install client",
-    "client": "cd ../frontend && react-scripts start",
+    "client": "cd ../frontend && npm run client",
     "server": "cd ../backend && node server.js",
-    "start all": "concurrently --kill-others \"npm run client\" \"npm run server\"",
+    "start_all": "concurrently --kill-others \"npm run client\" \"npm run server\"",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "concurrently": "^5.3.0"
   }
 }
