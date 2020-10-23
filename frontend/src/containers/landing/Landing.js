@@ -11,8 +11,9 @@ import scrollImage from './../../assets/purpleScrollCard.png';
 const Landing = () => {
     return (
         <div className="body">
-            <Container>
+            <Container >
                 <Col>
+                  
                     <h1 className="title">Moodia<img className="logo" src={logo} alt="" /></h1>
                     <p className="subText">'cuz sometimes, you're just not in the mood.
                     <br /> <br />

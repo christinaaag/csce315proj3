@@ -6,6 +6,8 @@ app.get('/backendtest', (req, res) => {
   res.send('connected to backend!')
 })
 
-app.listen(port, () => {
-  console.log(`Moodia backend listening at http://localhost:${port}`)
+var server = app.listen(port, function() {
+  var host = server.address().address
+  var port = server.address().port
+  console.log(`Moodia backend listening at http://%s:%s`, host, port)
 })
