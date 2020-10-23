@@ -43,15 +43,16 @@ return (
                 ]}
 
                 lineWidth={20}
+
                 />
                 <br></br>
                 <br></br>
           
                   <h4 className= 'legend-title'>Tweet Emotions</h4>
                   
-                  <div className= 'legend-text'>😊Happy</div>
-                  <div className= 'legend-text'>😔Sad</div>
-                  <div className= 'legend-text'>😶Neutral</div>
+                  <div className= 'legend-text' style = {{color: '#F8C822'}}>😊Happy</div>
+                  <div className= 'legend-text' style = {{color: '#6693FF'}}>😔Sad</div>
+                  <div className= 'legend-text' style = {{color: '#958C8C'}}>😶Neutral</div>
                
               </Col>
              

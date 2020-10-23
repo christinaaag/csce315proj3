@@ -1,0 +1,14 @@
+.userDisp-container{
+    padding-top: 25px;
+    padding-left: 125px;
+    padding-bottom: 25px;
+    font-size: x-large;
+    font-weight: bold;
+    text-align: left;
+}
+.userProfPic{
+    width: 25%;
+    height: auto;
+    margin-right: 20px;
+    
+}

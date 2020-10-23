@@ -5,17 +5,22 @@ import './Dashboard.css';
 import './../generalStyle.css';
 import logo from './../../assets/logos - white.png';
 import SentDisp from './components/SentDisp';
+import UserDisp from './components/UserDisp';
 
 const Dashboard = () => {
     return (
         <div className="body">
-            <Container >
+            <Container style={{margin: 0}}>
                 <h1 className="logo">Moodia<img className="logo" src={logo} alt="" /></h1>
             </Container>
-            <Container>
-            
+            <Container style={{margin: 0}}>
+
                 <Col>
-                <SentDisp/>
+
+                    <UserDisp/>
+             
+                    <SentDisp/>
+                
                 </Col>
                 
                 
