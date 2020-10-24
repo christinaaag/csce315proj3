@@ -8,7 +8,11 @@ frontend/node_modules
 backend/node_modules
 
 backend/.env.twitter
+<<<<<<< HEAD
 backend/csce315project3-34e117ad2da0.json
+=======
+backend/.csce315project3-34e117ad2da0.json
+>>>>>>> dbae6cb65862e96994e772419daad91099e71f73
 
 /.pnp
 .pnp.js
