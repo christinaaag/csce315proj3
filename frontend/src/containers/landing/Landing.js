@@ -25,7 +25,7 @@ const Landing = () => {
                     <br /><br /></p>
                     <p className="twitterButton"><Button variant="primary" size="sm">Sign in with Twitter</Button>{' '}</p>
                 </Col>
-                <Col>
+                <Col className="colRight">
                     <Row><img className="imageCard" src={loginImage} alt=""/></Row>
                     <Row><img className="imageCard" src={pickMoodImage} alt=""/></Row>
                     <Row><img className="imageCard" src={scrollImage} alt=""/></Row>
