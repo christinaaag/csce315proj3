@@ -1,0 +1,46 @@
+:root {
+    --primary: #FFF;
+  }
+  
+  .tweet {
+    border-radius: 5px;
+    border-width: 3px;
+    background-color: transparent;
+    text-align: left;
+  }
+  
+  .tweet--primary {
+    background-color: var(--primary);
+    color: #242424;
+    border: 1px solid var(--primary);
+  }
+  
+  .tweet--happy {
+    border-color: #F8C822;
+    background-color: #F8C822;
+    color: #221E34;
+  }
+  .tweet--happy--outline {
+    border-color: #F8C822;
+    color: #F8C822;
+  }
+  
+  .tweet--sad {
+    border-color: #6693FF;
+    background-color: #6693FF;
+    color: #221E34;
+  }
+  .tweet--sad--outline {
+    border-color: #6693FF;
+    color: #6693FF;
+  }
+
+  .tweet--neutral {
+    border-color: #958C8C;
+    background-color: #958C8C;
+    color: #221E34;
+  }
+  .tweet--neutral--outline {
+    border-color: #958C8C;
+    color: #958C8C;
+  }
