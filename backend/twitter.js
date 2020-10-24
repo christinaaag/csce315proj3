@@ -8,10 +8,12 @@ const client = new Twitter({
     consumer_secret: process.env.API_SECRET
 });
 
+
+
 async function oauth() {
     // gets request token to create authorize url
-    var cb_confirm, request_token;
-    await client.getRequestToken("oob")
+    var request_token;
+    await client.getRequestToken("http://localhost:5000/access_token")
       .then(res =>
         {
             console.log({
@@ -19,7 +21,6 @@ async function oauth() {
                 request_secret: res.oauth_token_secret,
                 cb_confirm: res.oauth_callback_confirmed
             })
-            cb_confirm = res.oauth_callback_confirmed
             request_token = res.oauth_token
         }
       ).catch(console.error);
