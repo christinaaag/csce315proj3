@@ -2,22 +2,25 @@ import React from 'react';
 import { Tweet } from './Tweet';
 
 const Timeline = (props) => {
-    const tweets = props.tweets;
+    const [tweets, userMood] = [props.tweets, props.userMood];
     return (
         <div>
             {tweets.map((tweet, key) => (
-                <div>
-                    <Tweet
-                        key={key}
-                        author={tweet.author}
-                        text={tweet.text}
-                        date={tweet.date}
-                        mood={tweet.mood}
-                        url={tweet.url}
-                    />
-                    <br />
-                </div>
-            ))}
+                (tweet.mood == userMood || userMood == null) ?
+                    <div>
+                        <Tweet
+                            key={key}
+                            author={tweet.author}
+                            text={tweet.text}
+                            date={tweet.date}
+                            mood={tweet.mood}
+                            url={tweet.url}
+                        />
+                        <br />
+                    </div>
+                    : null
+            )
+            )}
         </div>
     )
 }
