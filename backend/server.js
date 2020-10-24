@@ -82,7 +82,7 @@ app.get('/dashboard', async function (req, res) {
 app.get('/user', async function (req, res) {
   var oauth_token = req.query.token_key
   var oauth_token_secret = req.query.token_secret
-  console.log({oauth_token: oauth_token, oauth_token_secret: oauth_token_secret});
+  
   const userclient = new Twitter({
     consumer_key: process.env.API_KEY,
     consumer_secret: process.env.API_SECRET,
@@ -104,26 +104,8 @@ app.get('/user', async function (req, res) {
 
 app.get('/tweet_text', async function (req, res) {
 
-  var oauth_verifier = req.query.oauth_verifier
-  var request_token = req.query.oauth_token
-
-    var oauth_token, oauth_token_secret;
-    await client.getAccessToken({
-        oauth_verifier: oauth_verifier,
-        oauth_token: request_token
-    })
-    .then(res =>
-        {   
-            console.log({
-                oauth_token: res.oauth_token,
-                oauth_token_secret: res.oauth_token_secret,
-                userId: res.user_id,
-                screenName: res.screen_name
-              })
-            oauth_token = res.oauth_token
-            oauth_token_secret = res.oauth_token_secret
-        }
-    ).catch(console.error);
+  var oauth_token = req.query.token_key
+  var oauth_token_secret = req.query.token_secret
     
     const userclient = new Twitter({
       consumer_key: process.env.API_KEY,
@@ -131,9 +113,11 @@ app.get('/tweet_text', async function (req, res) {
       access_token_key: oauth_token,
       access_token_secret: oauth_token_secret
     });
-    res.redirect('http://localhost:3000/dashboard?oauth_token='+oauth_token+"&oauth_verifier"+oauth_token_secret)
-    var response = await userclient.get("statuses/user_timeline");
-
+    try{
+      var response = await userclient.get("statuses/user_timeline");
+    }catch (err){
+      console.log(err)
+    }
     
     var tweets = []
     response.forEach(function(obj) {
@@ -149,6 +133,7 @@ app.get('/tweet_text', async function (req, res) {
       }
       tweets.push(tweet)
     });
-    console.log(tweets[0])
+    
+    res.send(tweets)
 });
 

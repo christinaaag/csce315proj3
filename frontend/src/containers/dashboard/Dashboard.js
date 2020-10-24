@@ -34,7 +34,8 @@ const tweetsList = [
 
 const Dashboard = () => {
 
-    var user_name, image_url;
+    var user_name, image_url, tweets;
+    var tweet_text = []
     async function getInformation() {
         var link = window.location.href
         console.log(link)
@@ -62,6 +63,23 @@ const Dashboard = () => {
         console.log(response.data)
         user_name = response.data.name
         image_url = response.data.image_url;
+
+        path = '/tweet_text?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
+        response = await Axios({
+            method: "GET",
+            url: path,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        tweets = response.data
+        console.log(response.data)
+
+        tweets.forEach(function(tweet){
+            tweet_text.push(tweet.text);
+        });
+
+        console.log(tweet_text)
     }
     getInformation();
     const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
