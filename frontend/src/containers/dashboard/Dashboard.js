@@ -13,6 +13,7 @@ import Axios from "axios";
 const Dashboard = () => {
 
     var user_name, image_url, tweets;
+    var tweet_text = []
     async function getInformation() {
         var link = window.location.href
         console.log(link)
@@ -51,6 +52,12 @@ const Dashboard = () => {
         })
         tweets = response.data
         console.log(response.data)
+
+        tweets.forEach(function(tweet){
+            tweet_text.push(tweet.text);
+        });
+
+        console.log(tweet_text)
     }
     getInformation();
     const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
