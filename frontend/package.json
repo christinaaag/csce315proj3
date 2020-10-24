@@ -2,10 +2,12 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "chart": "^0.1.2",
     "chart.js": "^2.9.4",
@@ -17,6 +19,7 @@
     "react-donut-chart": "^1.1.8",
     "react-minimal-pie-chart": "^8.0.1",
     "react-router-dom": "^5.2.0",
+    "react-script-tag": "^1.1.2",
     "react-scripts": "^3.4.4",
     "styled-components": "^5.2.0"
   },

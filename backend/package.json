@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "handles all calls to third party apis",
   "main": "index.js",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "client": "cd ../frontend && npm run client",
     "server": "cd ../backend && node server.js",
@@ -15,11 +16,17 @@
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.1",
+    "body-parser": "^1.19.0",
     "browserify": "^17.0.0",
     "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
     "custom-env": "^2.0.1",
     "express": "^4.17.1",
+    "javascript-web-client": "^1.0.0",
+    "jquery": "^3.5.1",
     "prompt-async": "^0.9.9",
-    "twitter-lite": "^0.14.0"
+    "querystring": "^0.2.0",
+    "twitter-lite": "^0.14.0",
+    "url": "^0.11.0"
   }
 }
