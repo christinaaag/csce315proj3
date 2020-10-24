@@ -6,8 +6,10 @@ import './../generalStyle.css';
 import logo from './../../assets/logos - white.png';
 import SentDisp from './components/SentDisp';
 import UserDisp from './components/UserDisp';
+import tempTweets from './../../assets/temporaryFeed.png';
 
 const Dashboard = () => {
+    const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
     return (
         <div className="body">
             <Container style={{margin: 0}}>
@@ -26,8 +28,14 @@ const Dashboard = () => {
                 
 
 
-                <Col>
+                <Col className="feed">
                     <h2>Twitter Feed</h2>
+                    <div className="scrollbar scrollbar-primary" style={scrollContainerStyle}>
+                        <img className="scrollSection"
+                        alt=""
+                        src={tempTweets}
+                        />
+                    </div>
                 </Col>
                     
         
