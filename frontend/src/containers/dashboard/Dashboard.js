@@ -7,8 +7,40 @@ import logo from './../../assets/logos - white.png';
 import SentDisp from './components/SentDisp';
 import UserDisp from './components/UserDisp';
 import tempTweets from './../../assets/temporaryFeed.png';
+import Axios from "axios";
 
 const Dashboard = () => {
+
+    var user_name, image_url;
+    async function getInformation() {
+        var link = window.location.href
+        console.log(link)
+        var response = await Axios({
+            method: "GET",
+            url: link,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        
+        var oauth_token = response.data.oauth_token
+        var oauth_token_secret = response.data.oauth_token_secret
+        console.log({oauth_token, oauth_token_secret})
+        var path = '/user?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
+        console.log(path)
+        response = await Axios({
+            method: "GET",
+            url: path,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        console.log(response.data)
+        user_name = response.data.name
+        image_url = response.data.image_url;
+    }
+    getInformation();
     const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
     return (
         <div className="body">
