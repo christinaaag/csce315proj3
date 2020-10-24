@@ -48,5 +48,5 @@ async function getSentiment(text) {
 
 /*
     below is an example call to getSentiment() that will print the sentiment:
-    getSentiment('this is a divisive tweet that will piss you off').then(console.log);
+    getSentiment('this is a divisive tweet that will make you sad').then(console.log);
 */
