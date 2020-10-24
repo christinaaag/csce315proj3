@@ -6,7 +6,7 @@ const Timeline = (props) => {
     return (
         <div>
             {tweets.map((tweet, key) => (
-                (tweet.mood == userMood || userMood == null) ?
+                (tweet.mood == userMood || userMood == "all") ?
                     <div>
                         <Tweet
                             key={key}

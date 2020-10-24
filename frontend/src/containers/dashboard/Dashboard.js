@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Dashboard.css';
@@ -23,7 +23,7 @@ const tweetsList = [
         mood: 'happy',
         date: '10/02/20',
         url: 'twitter.com',
-    },{
+    }, {
         author: "Sad Boy",
         text: "This is a sad tweet.",
         mood: 'sad',
@@ -33,6 +33,7 @@ const tweetsList = [
 ];
 
 const Dashboard = () => {
+    const [userMood, setUserMood] = useState("all");
 
     var user_name, image_url, tweets;
     var tweet_text = []
@@ -46,10 +47,10 @@ const Dashboard = () => {
                 "Content-Type": "application/json"
             }
         });
-        
+
         var oauth_token = response.data.oauth_token
         var oauth_token_secret = response.data.oauth_token_secret
-        console.log({oauth_token, oauth_token_secret})
+        console.log({ oauth_token, oauth_token_secret })
         var path = '/user?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
         console.log(path)
         response = await Axios({
@@ -75,7 +76,7 @@ const Dashboard = () => {
         tweets = response.data
         console.log(response.data)
 
-        tweets.forEach(function(tweet){
+        tweets.forEach(function (tweet) {
             tweet_text.push(tweet.text);
         });
 
@@ -90,7 +91,7 @@ const Dashboard = () => {
             </Container>
             <Container style={{ margin: 0 }}>
 
-                <Col>
+                <Col xs={6}>
 
                     <UserDisp />
 
@@ -101,11 +102,11 @@ const Dashboard = () => {
 
 
 
-                <Col className="feed">
+                <Col className="feed" xs={6}>
                     <h2>Twitter Feed</h2>
                     <br />
                     <div className="scrollbar scrollbar-primary" style={scrollContainerStyle}>
-                        <Timeline tweets={tweetsList}/>
+                        <Timeline tweets={tweetsList} userMood={userMood} />
                     </div>
                 </Col>
 
