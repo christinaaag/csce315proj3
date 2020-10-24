@@ -10,6 +10,28 @@ import UserDisp from './components/UserDisp';
 import tempTweets from './../../assets/temporaryFeed.png';
 import Axios from "axios";
 
+const tweetsList = [
+    {
+        author: "Guy Boring",
+        text: "This is a neutral tweet.",
+        mood: 'neutral',
+        date: '10/01/20',
+        url: 'twitter.com',
+    }, {
+        author: "Happ E. Man",
+        text: "This is a happy tweet.",
+        mood: 'happy',
+        date: '10/02/20',
+        url: 'twitter.com',
+    },{
+        author: "Sad Boy",
+        text: "This is a sad tweet.",
+        mood: 'sad',
+        date: '10/03/20',
+        url: 'twitter.com',
+    },
+];
+
 const Dashboard = () => {
 
     var user_name, image_url;
@@ -65,7 +87,7 @@ const Dashboard = () => {
                     <h2>Twitter Feed</h2>
                     <br />
                     <div className="scrollbar scrollbar-primary" style={scrollContainerStyle}>
-                        <Timeline />
+                        <Timeline tweets={tweetsList}/>
                     </div>
                 </Col>
 

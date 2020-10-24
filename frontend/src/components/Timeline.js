@@ -1,29 +1,23 @@
 import React from 'react';
 import { Tweet } from './Tweet';
 
-const Timeline = () => {
+const Timeline = (props) => {
+    const tweets = props.tweets;
     return (
         <div>
-            <Tweet
-                author={"Guy Boring"}
-                text={"This is a neutral tweet."}
-                date={"October"}
-                mood={"neutral"}
-            />
-            <br />
-            <Tweet
-                author={"Happ E. Man"}
-                text={"This is a happy tweet."}
-                date={"October"}
-                mood={"happy"}
-            />
-            <br />
-            <Tweet
-                author={"Sad Boy"}
-                text={"This is a sad tweet."}
-                date={"October"}
-                mood={"sad"}
-            />
+            {tweets.map((tweet, key) => (
+                <div>
+                    <Tweet
+                        key={key}
+                        author={tweet.author}
+                        text={tweet.text}
+                        date={tweet.date}
+                        mood={tweet.mood}
+                        url={tweet.url}
+                    />
+                    <br />
+                </div>
+            ))}
         </div>
     )
 }
