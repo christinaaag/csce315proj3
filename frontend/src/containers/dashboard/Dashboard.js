@@ -29,7 +29,7 @@ const tweetsList = [
         mood: 'sad',
         date: '10/03/20',
         url: 'twitter.com',
-    },
+    }, 
 ];
 
 const Dashboard = () => {
@@ -106,33 +106,31 @@ const Dashboard = () => {
         }
     }
     getInformation();
-    const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
+    const scrollContainerStyle = { width: "800px", maxHeight: "800px" };
     return (
         <div className="body">
             <Container style={{ margin: 0 }}>
                 <h1 className="logo">Moodia<img className="logo" src={logo} alt="" /></h1>
             </Container>
-            <Container style={{ margin: 0 }}>
+            <Container fluid>
+                <Row className="row">
+                    <Col xs={12} md={3}>
 
-                <Col xs={6}>
+                        <UserDisp />
 
-                    <UserDisp />
+                        <SentDisp changeMood={e => changeMood(e.target.value)} />
 
-                    <SentDisp changeMood={e => changeMood(e.target.value)} />
+                    </Col>
 
-                </Col>
-
-
-
-
-                <Col className="feed" xs={6}>
-                    <h2>Twitter Feed</h2>
-                    <h2>{userMood}</h2>
-                    <br />
-                    <div className="scrollbar scrollbar-primary" style={scrollContainerStyle}>
-                        <Timeline tweets={tweetsList} userMood={userMood} />
-                    </div>
-                </Col>
+                    <Col className="feed" xs={8}>
+                        <h2>Twitter Feed</h2>
+                        <h2>{userMood}</h2>
+                        <br />
+                        <div className="scrollbar scrollbar-primary" >
+                            <Timeline tweets={tweetsList} userMood={userMood} />
+                        </div>
+                    </Col>
+                </Row>
 
 
             </Container>

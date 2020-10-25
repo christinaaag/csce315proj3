@@ -12,7 +12,7 @@ const TweetCard = (props) => {
     const [author, text, date, mood] = [props.author, props.text, props.date, props.mood];
     return (
         <Card
-            className={`tweet tweet--${mood}`}
+            className={`tweet tweet--${mood}--outline`}
         >
             <Card.Body>
                 <Card.Subtitle>Author: {author}</Card.Subtitle>

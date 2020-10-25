@@ -1,14 +1,20 @@
-.container {
+.dcontainer {
     display: flex;
     flex-direction: row !important;
+    align-items: stretch !important;
+    align-content: stretch !important;
+    justify-content: flex-start !important;
 }
 
 .col {
-    align-items: stretch;
+  align-items: flex;
+  align-content: stretch;
 }
 
 .row {
-    justify-content: center;
+    justify-content: space-around !important;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
 }
 .imageCard {
     height: 25vmin;
