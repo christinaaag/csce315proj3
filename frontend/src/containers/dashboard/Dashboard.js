@@ -84,7 +84,6 @@ const Dashboard = () => {
             }
         })
         tweets = response.data
-        console.log(response.data)
 
         tweets.forEach(function (tweet) {
             tweet_text.push(tweet.text);
@@ -93,7 +92,8 @@ const Dashboard = () => {
         console.log(tweet_text)
         
         for (var text of tweet_text){
-            path = '/tweet_emotion?text=' + text
+            var raw_text = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+            path = '/tweet_emotion?text=' + raw_text
             response = await Axios({
                 method: "GET",
                 url: path,
@@ -101,9 +101,9 @@ const Dashboard = () => {
                     "Content-Type": "application/json"
                 }
             })
+            console.log({emotion: response.data, text: text})
             emotions.push(response.data)
         }
-        console.log(emotions)
     }
     getInformation();
     const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
