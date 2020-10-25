@@ -24,8 +24,6 @@ const Landing = () => {
         console.log(link);
         window.location.href = link;
     }
-
-
     
     return (
         <div className="body">

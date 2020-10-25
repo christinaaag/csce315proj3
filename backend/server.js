@@ -2,11 +2,11 @@ const express = require('express')
 const app = express()
 const port = 5000
 const bodyParser = require("body-parser")
+const sentiment = require('./sentiment')
+
 var cors = require('cors')
 
-
 var Twitter = require('twitter-lite')
-const prompt = require('prompt-async')
 const { response } = require('express')
 require ('custom-env').env('twitter')
 
@@ -99,7 +99,6 @@ app.get('/user', async function (req, res) {
   var name = response.name, profile_image_url = response.profile_image_url;
   
   res.send({name: name, image_url: profile_image_url})
-  console.log({name: name, image_url: profile_image_url});
 });
 
 app.get('/tweet_text', async function (req, res) {
@@ -136,4 +135,23 @@ app.get('/tweet_text', async function (req, res) {
     
     res.send(tweets)
 });
+app.get('/tweet_emotion', async function (req, res) {
+  var text = req.query.text
+
+  console.log(text)
+    
+    try{
+      var response = await sentiment.getSentiment(text);
+  
+    }catch (err){
+      if(err.code == 3){
+        response = 'neutral'
+      }
+    }
+    
+    console.log(response)
+    
+    res.send(response)
+});
+
 

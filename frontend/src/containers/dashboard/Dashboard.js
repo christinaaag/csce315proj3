@@ -35,8 +35,9 @@ const tweetsList = [
 const Dashboard = () => {
     const [userMood, setUserMood] = useState("all");
 
+    var emotions = []
     function changeMood(mood) {
-        if (userMood == mood) {
+        if(userMood == mood){
             setUserMood("all");
         } else {
             setUserMood(mood);
@@ -45,6 +46,7 @@ const Dashboard = () => {
 
     var user_name, image_url, tweets;
     var tweet_text = []
+    var emotions = []
     async function getInformation() {
         var link = window.location.href
         console.log(link)
@@ -89,6 +91,19 @@ const Dashboard = () => {
         });
 
         console.log(tweet_text)
+        
+        for (var text of tweet_text){
+            path = '/tweet_emotion?text=' + text
+            response = await Axios({
+                method: "GET",
+                url: path,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            emotions.push(response.data)
+        }
+        console.log(emotions)
     }
     getInformation();
     const scrollContainerStyle = { width: "800px", maxHeight: "800px" };
