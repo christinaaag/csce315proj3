@@ -1,6 +1,5 @@
 import React from 'react';
 import './Button.css';
-import { Button as bsbutton} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const STYLES = ['btn--primary', 'btn--happy', 'btn--sad', 'btn--neutral'];
@@ -22,14 +21,14 @@ export const Button = ({
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
   return (
-      <bsbutton
+      <button
         value={value}
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}
         type={type}
       >
         {children}
-      </bsbutton>
+      </button>
   );
 };
 
