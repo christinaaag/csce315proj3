@@ -35,7 +35,8 @@ const tweetsList = [
 const Dashboard = () => {
     const [userMood, setUserMood] = useState("all");
 
-    var user_name, image_url, tweets;
+    var user_name, image_url, tweets; 
+    var emotions = []
     var tweet_text = []
     async function getInformation() {
         var link = window.location.href
@@ -81,6 +82,19 @@ const Dashboard = () => {
         });
 
         console.log(tweet_text)
+        
+        for (var text of tweet_text){
+            path = '/tweet_emotion?text=' + text
+            response = await Axios({
+                method: "GET",
+                url: path,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            emotions.push(response.data)
+        }
+        console.log(emotions)
     }
     getInformation();
     const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
