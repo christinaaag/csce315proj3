@@ -37,6 +37,7 @@ const Dashboard = () => {
 
     var emotions = []
     function changeMood(mood) {
+        if(userMood == mood){
             setUserMood("all");
         } else {
             setUserMood(mood);
@@ -45,7 +46,9 @@ const Dashboard = () => {
 
     var user_name, image_url, tweets;
     var tweet_text = []
+    var emotions = []
     async function getInformation() {
+        var link = window.location.href
         console.log(link)
         var response = await Axios({
             method: "GET",
