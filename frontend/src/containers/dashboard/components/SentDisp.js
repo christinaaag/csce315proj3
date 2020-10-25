@@ -7,7 +7,7 @@ import { PieChart } from 'react-minimal-pie-chart';
 
 
 
-function SentDisp() {
+const SentDisp = (props) => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -64,13 +64,12 @@ function SentDisp() {
           <Row>
             <Col xs={12}>
               <div className='sentdisp-btns'>
-                <Button buttonStyle='btn--happy'>Display Happy Tweets</Button>
+                <Button buttonStyle='btn--happy' onClick={props.changeMood} value={'happy'}>Display Happy Tweets</Button>
+
+                <Button buttonStyle='btn--sad' onClick={props.changeMood} value={'sad'}>Display Sad Tweets</Button>
 
 
-                <Button buttonStyle='btn--sad'>Display Sad Tweets</Button>
-
-
-                <Button buttonStyle='btn--neutral'>Display Neutral Tweets</Button>
+                <Button buttonStyle='btn--neutral' onClick={props.changeMood} value={'neutral'}>Display Neutral Tweets</Button>
 
               </div>
             </Col>

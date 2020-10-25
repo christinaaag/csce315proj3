@@ -35,11 +35,17 @@ const tweetsList = [
 const Dashboard = () => {
     const [userMood, setUserMood] = useState("all");
 
-    var user_name, image_url, tweets; 
     var emotions = []
+    function changeMood(mood) {
+            setUserMood("all");
+        } else {
+            setUserMood(mood);
+        }
+    }
+
+    var user_name, image_url, tweets;
     var tweet_text = []
     async function getInformation() {
-        var link = window.location.href
         console.log(link)
         var response = await Axios({
             method: "GET",
@@ -109,7 +115,7 @@ const Dashboard = () => {
 
                     <UserDisp />
 
-                    <SentDisp />
+                    <SentDisp changeMood={e => changeMood(e.target.value)} />
 
                 </Col>
 
@@ -118,6 +124,7 @@ const Dashboard = () => {
 
                 <Col className="feed" xs={6}>
                     <h2>Twitter Feed</h2>
+                    <h2>{userMood}</h2>
                     <br />
                     <div className="scrollbar scrollbar-primary" style={scrollContainerStyle}>
                         <Timeline tweets={tweetsList} userMood={userMood} />
