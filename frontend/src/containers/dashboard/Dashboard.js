@@ -35,6 +35,14 @@ const tweetsList = [
 const Dashboard = () => {
     const [userMood, setUserMood] = useState("all");
 
+    function changeMood(mood) {
+        if (userMood == mood) {
+            setUserMood("all");
+        } else {
+            setUserMood(mood);
+        }
+    }
+
     var user_name, image_url, tweets;
     var tweet_text = []
     async function getInformation() {
@@ -95,7 +103,7 @@ const Dashboard = () => {
 
                     <UserDisp />
 
-                    <SentDisp />
+                    <SentDisp changeMood={e => changeMood(e.target.value)} />
 
                 </Col>
 
@@ -104,6 +112,7 @@ const Dashboard = () => {
 
                 <Col className="feed" xs={6}>
                     <h2>Twitter Feed</h2>
+                    <h2>{userMood}</h2>
                     <br />
                     <div className="scrollbar scrollbar-primary" style={scrollContainerStyle}>
                         <Timeline tweets={tweetsList} userMood={userMood} />
