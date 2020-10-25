@@ -9,6 +9,67 @@ import SentDisp from './components/SentDisp';
 import UserDisp from './components/UserDisp';
 import tempTweets from './../../assets/temporaryFeed.png';
 import Axios from "axios";
+import {useAsync} from "react-async"
+
+async function getInformation() {
+    var user_name, image_url, tweets;
+    var tweet_text = []
+    var emotions = []
+    var link = window.location.href
+    
+    var response = await Axios({
+        method: "GET",
+        url: link,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    var oauth_token = response.data.oauth_token
+    var oauth_token_secret = response.data.oauth_token_secret
+    var path = '/user?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
+    
+    response = await Axios({
+        method: "GET",
+        url: path,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    user_name = response.data.name
+    image_url = response.data.image_url;
+
+    path = '/tweet_text?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
+    response = await Axios({
+        method: "GET",
+        url: path,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    tweets = response.data
+
+    tweets.forEach(function (tweet) {
+        tweet_text.push(tweet.text);
+    });
+
+    
+    for (var text of tweet_text){
+        var raw_text = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+        path = '/tweet_emotion?text=' + raw_text
+        response = await Axios({
+            method: "GET",
+            url: path,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        emotions.push(response.data)
+    }
+
+    return [user_name, image_url, tweets, tweet_text, emotions]
+}
 
 const tweetsList = [
     {
@@ -32,6 +93,7 @@ const tweetsList = [
     }, 
 ];
 
+
 const Dashboard = () => {
     const [userMood, setUserMood] = useState("all");
 
@@ -43,100 +105,47 @@ const Dashboard = () => {
             setUserMood(mood);
         }
     }
-
-    var user_name, image_url, tweets;
-    var tweet_text = []
-    var emotions = []
-    async function getInformation() {
-        var link = window.location.href
-        console.log(link)
-        var response = await Axios({
-            method: "GET",
-            url: link,
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-        var oauth_token = response.data.oauth_token
-        var oauth_token_secret = response.data.oauth_token_secret
-        console.log({ oauth_token, oauth_token_secret })
-        var path = '/user?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
-        console.log(path)
-        response = await Axios({
-            method: "GET",
-            url: path,
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-
-        console.log(response.data)
-        user_name = response.data.name
-        image_url = response.data.image_url;
-
-        path = '/tweet_text?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
-        response = await Axios({
-            method: "GET",
-            url: path,
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        tweets = response.data
-
-        tweets.forEach(function (tweet) {
-            tweet_text.push(tweet.text);
-        });
-
-        console.log(tweet_text)
-        
-        for (var text of tweet_text){
-            var raw_text = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-            path = '/tweet_emotion?text=' + raw_text
-            response = await Axios({
-                method: "GET",
-                url: path,
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            console.log({emotion: response.data, text: text})
-            emotions.push(response.data)
-        }
-    }
-    getInformation();
     const scrollContainerStyle = { width: "800px", maxHeight: "800px" };
-    return (
-        <div className="body">
-            <Container style={{ margin: 0 }}>
-                <h1 className="logo">Moodia<img className="logo" src={logo} alt="" /></h1>
-            </Container>
-            <Container fluid>
-                <Row className="row">
-                    <Col xs={12} md={3}>
+    const {data, error, isPending } = useAsync({promiseFn: getInformation})
+    if (isPending) return "Loading.."
+    if (error) {
+        console.log(error)
+        return `Something went wrong: ${error.message}`
+    }
+    if (data){
+        var user_name = data[0], image_url = data[1], tweets = data[2], tweet_text = data[3], emotions = data[4]
+        console.log(data)
+        return (
+            <div className="body">
+                <Container style={{ margin: 0 }}>
+                    <h1 className="logo">Moodia<img className="logo" src={logo} alt="" /></h1>
+                </Container>
+                <Container fluid>
+                    <Row className="row">
+                        <Col xs={12} md={3}>
 
-                        <UserDisp />
+                            <UserDisp />
 
-                        <SentDisp changeMood={e => changeMood(e.target.value)} />
+                            <SentDisp changeMood={e => changeMood(e.target.value)} />
 
-                    </Col>
+                        </Col>
 
-                    <Col className="feed" xs={8}>
-                        <h2>Twitter Feed</h2>
-                        <h2>{userMood}</h2>
-                        <br />
-                        <div className="scrollbar scrollbar-primary" >
-                            <Timeline tweets={tweetsList} userMood={userMood} />
-                        </div>
-                    </Col>
-                </Row>
+                        <Col className="feed" xs={8}>
+                            <h2>Twitter Feed</h2>
+                            <h2>{userMood}</h2>
+                            <br />
+                            <div className="scrollbar scrollbar-primary" >
+                                <Timeline tweets={tweetsList} userMood={userMood} />
+                            </div>
+                        </Col>
+                    </Row>
 
 
-            </Container>
+                </Container>
 
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
 export default Dashboard;
