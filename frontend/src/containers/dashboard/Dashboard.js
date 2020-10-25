@@ -11,12 +11,14 @@ import tempTweets from './../../assets/temporaryFeed.png';
 import Axios from "axios";
 import {useAsync} from "react-async"
 
+
 async function getInformation() {
+   
     var user_name, image_url, tweets;
     var tweet_text = []
     var emotions = []
     var link = window.location.href
-    
+
     var response = await Axios({
         method: "GET",
         url: link,
@@ -93,7 +95,7 @@ const tweetsList = [
     }, 
 ];
 
-
+var user_name, image_url, tweets, tweet_text, emotions;
 const Dashboard = () => {
     const [userMood, setUserMood] = useState("all");
 
@@ -112,9 +114,16 @@ const Dashboard = () => {
         console.log(error)
         return `Something went wrong: ${error.message}`
     }
+
+    
     if (data){
-        var user_name = data[0], image_url = data[1], tweets = data[2], tweet_text = data[3], emotions = data[4]
+        user_name = data[0]
+        image_url = data[1]
+        tweets = data[2]
+        tweet_text = data[3]
+        emotions = data[4]
         console.log(data)
+
         return (
             <div className="body">
                 <Container style={{ margin: 0 }}>
@@ -123,10 +132,12 @@ const Dashboard = () => {
                 <Container fluid>
                     <Row className="row">
                         <Col xs={12} md={3}>
-
-                            <UserDisp />
-
-                            <SentDisp changeMood={e => changeMood(e.target.value)} />
+                           
+                        <div className="userDisp-container">
+                            <img className= "userProfPic" src ={image_url}></img>{user_name}
+                        </div>
+                        
+                        <SentDisp changeMood={e => changeMood(e.target.value)} />
 
                         </Col>
 
