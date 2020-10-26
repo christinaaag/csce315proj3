@@ -11,9 +11,10 @@ import Axios from "axios";
 
 const Landing = () => {
     async function urlGet() {
+        console.log(`${process.env.PUBLIC_URL}/request_token`)
         var response = await Axios({
             method: "GET",
-            url: `${process.env.PUBLIC_URL}/request_token`,
+            url: `/request_token`,
             headers: {
                 "Content-Type": "application/json"
             }

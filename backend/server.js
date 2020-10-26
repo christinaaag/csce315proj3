@@ -32,7 +32,7 @@ var server = app.listen(port, function() {
 
 app.get('/request_token', async function (req, res) {
   var request_token;
-  await client.getRequestToken("http://localhost:5000/access_token")
+  await client.getRequestToken("http://localhost:5000/christina-gan5/csce315project3/access_token")
     .then(res =>
       {
           console.log({
@@ -47,7 +47,7 @@ app.get('/request_token', async function (req, res) {
   res.send({link: "https://api.twitter.com/oauth/authorize?oauth_token="+request_token, message: request_token});
 });
 
-app.get('/access_token', async function (req, res) {
+app.get('/christina-gan5/csce315project3/access_token', async function (req, res) {
   var oauth_verifier = req.query.oauth_verifier
   var request_token = req.query.oauth_token
     var oauth_token, oauth_token_secret;
@@ -68,10 +68,10 @@ app.get('/access_token', async function (req, res) {
         }
     ).catch(console.error);
     
-    res.redirect('http://localhost:3000/dashboard?token_key='+oauth_token+"&token_secret="+oauth_token_secret)
+    res.redirect('http://localhost:3000/christina-gan5/csce315project3/dashboard?token_key='+oauth_token+"&token_secret="+oauth_token_secret)
 });
 
-app.get('/dashboard', async function (req, res) {
+app.get('/christina-gan5/csce315project3/dashboard', async function (req, res) {
   console.log(req.query)
   var oauth_token = req.query.token_key
   var oauth_token_secret = req.query.token_secret
@@ -79,7 +79,7 @@ app.get('/dashboard', async function (req, res) {
   res.send({oauth_token: oauth_token, oauth_token_secret: oauth_token_secret});
 });
 
-app.get('/user', async function (req, res) {
+app.get('/christina-gan5/csce315project3/user', async function (req, res) {
   var oauth_token = req.query.token_key
   var oauth_token_secret = req.query.token_secret
   
@@ -101,7 +101,7 @@ app.get('/user', async function (req, res) {
   res.send({name: name, image_url: profile_image_url})
 });
 
-app.get('/tweet_text', async function (req, res) {
+app.get('/christina-gan5/csce315project3/tweet_text', async function (req, res) {
 
   var oauth_token = req.query.token_key
   var oauth_token_secret = req.query.token_secret
@@ -135,7 +135,7 @@ app.get('/tweet_text', async function (req, res) {
     
     res.send(tweets)
 });
-app.get('/tweet_emotion', async function (req, res) {
+app.get('/christina-gan5/csce315project3/tweet_emotion', async function (req, res) {
   var text = req.query.text
 
   console.log(text)
