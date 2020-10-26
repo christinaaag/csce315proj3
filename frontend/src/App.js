@@ -15,8 +15,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path={"/"} component={Landing} />
-          <Route path={"/dashboard"} component={Dashboard} />
+          <Route exact path={"/christina-gan5/csce315project3/"} component={Landing} />
+          <Route path={"/christina-gan5/csce315project3/dashboard"} component={Dashboard} />
         </Switch>
       </Router>
     </div>

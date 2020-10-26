@@ -18,6 +18,7 @@ async function getInformation() {
     var tweet_text = []
     var emotions = []
     var link = window.location.href
+    console.log(link)
 
     var response = await Axios({
         method: "GET",
@@ -29,7 +30,7 @@ async function getInformation() {
 
     var oauth_token = response.data.oauth_token
     var oauth_token_secret = response.data.oauth_token_secret
-    var path = '/user?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
+    var path = '/christina-gan5/csce315project3/user?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
     
     response = await Axios({
         method: "GET",
@@ -42,7 +43,7 @@ async function getInformation() {
     user_name = response.data.name
     image_url = response.data.image_url;
 
-    path = '/tweet_text?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
+    path = '/christina-gan5/csce315project3/tweet_text?token_key=' + oauth_token + '&token_secret=' + oauth_token_secret
     response = await Axios({
         method: "GET",
         url: path,
@@ -59,7 +60,7 @@ async function getInformation() {
     
     for (var text of tweet_text){
         var raw_text = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-        path = '/tweet_emotion?text=' + raw_text
+        path = '/christina-gan5/csce315project3/tweet_emotion?text=' + raw_text
         response = await Axios({
             method: "GET",
             url: path,
@@ -111,6 +112,7 @@ const Dashboard = () => {
     const {data, error, isPending } = useAsync({promiseFn: getInformation})
     if (isPending) return "Loading.."
     if (error) {
+        console.log(window.location.href)
         console.log(error)
         return `Something went wrong: ${error.message}`
     }
@@ -141,7 +143,7 @@ const Dashboard = () => {
 
                         </Col>
 
-                        <Col className="feed" xs={8}>
+                        <Col xs={8}>
                             <h2>Twitter Feed</h2>
                             <h2>{userMood}</h2>
                             <br />
