@@ -5,12 +5,3 @@ Below is the date and the time for each scrum meeting. Our typical schedule woul
 This folder will contain our recorded meetings; a Google drive link is also provided below for all meeting recordings. Each video title would be the Sprint#_Meeting#_Date.
 
 [Scrum Meeting Google Drive](https://drive.google.com/drive/folders/1KeQDRcOEK_edj5f_HYT_pXG98-AMoG1V?usp=sharing)
-
-## Recorded Meeting Times and Length
-
-### Sprint 1
-| Date       | Meeting # | Time Length |
-|------------|-----------|-------------|
-| 10/20/2020 | 1         | 13 minutes  |
-| 10/22/2020 | 2         | 9 minutes   |
-| 10/24/2020 | 3         | 5 minutes   |
