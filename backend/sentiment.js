@@ -2,7 +2,7 @@
 const SentimentAPI = require('@google-cloud/language');
 
 // the line below sets the required environment variable 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = __dirname + "\\csce315project3-34e117ad2da0.json";
+process.env.GOOGLE_APPLICATION_CREDENTIALS = "csce315project3-34e117ad2da0.json";
 
 // below is the enum for what sentiments will be returned
 const emotions = {
@@ -46,6 +46,9 @@ async function getSentiment(text) {
     return await scoreToSentiment(text);
 }
 
+exports.getSentiment = getSentiment
+exports.scoreToSentiment = scoreToSentiment
+exports.getSentimentScore = getSentimentScore
 /*
     below is an example call to getSentiment() that will print the sentiment:
     getSentiment('this is a divisive tweet that will make you sad').then(console.log);
