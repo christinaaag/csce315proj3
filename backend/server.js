@@ -6,6 +6,9 @@ const sentiment = require('./sentiment')
 
 var cors = require('cors')
 
+var SpotifyWebApi = require('spotify-web-api-node');
+require ('custom-env').env('spotify')
+
 var Twitter = require('twitter-lite')
 const { response } = require('express')
 require ('custom-env').env('twitter')

@@ -27,6 +27,7 @@
     "jquery": "^3.5.1",
     "prompt-async": "^0.9.9",
     "querystring": "^0.2.0",
+    "spotify-web-api-node": "^5.0.0",
     "twitter-lite": "^0.14.0",
     "url": "^0.11.0"
   }
